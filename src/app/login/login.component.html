@@ -1,14 +1,46 @@
-<div class="container h-100">
-	<div class="row h-100 justify-content-center align-items-center">
-		<form class="col-12">
-			<div class="form-group">
-				<label for="formGroupExampleInput">Example label</label>
-				<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+<div class="container fullpage">
+	<div class="d-flex align-items-center justify-content-center h-100">
+		<div class="jumbotron">
+			<h3 class="text-center">Coding Dojo Dallas</h3>
+			<h4 class="text-center">Food Replenishment Electronic System Homepage</h4>
+			<div class="d-flex align-items-center justify-content-center h-100">
+				<div class="card text-white bg-info mb-3">
+					<div class="card-header">Log In</div>
+					<div class="card-body">
+						<form role="form" #login="ngForm" (submit)="preventDefault(); login();">
+							<div class="taller_row row">
+								<div class="col">
+									<div class="form-group">
+										<input type="text" name="email" id="email" required class="form-control input-lg" placeholder="Email Address"
+											[pattern]='email_pattern' [(ngModel)]="user.email" #email="ngModel"
+										/>
+										<div [hidden]="email.untouched || (email.dirty && email.valid)">
+											<small class="white_text">Please enter a valid email address.</small>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										<input type="password" name="password" id="password" required class="form-control input-lg" placeholder="Password"
+											[(ngModel)]="user.password" #password="ngModel"
+										/>
+										<div [hidden]="password.untouched || (password.dirty && password.valid)">
+											<small class="white_text">Password is required.</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<input type="submit" value="Log In" class="btn btn-success btn-block btn-border" [disabled]="login.invalid">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="formGroupExampleInput2">Another label</label>
-				<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-			</div>
-		</form>
+		</div>
 	</div>
 </div>

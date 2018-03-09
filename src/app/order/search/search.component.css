@@ -1,0 +1,15 @@
+.spacer {
+	height: 15px;
+}
+
+.fill {
+    flex:1;
+}
+
+.nopadding {
+	padding: 0px;
+}
+
+.nomargin {
+	margin: auto;
+}

@@ -1,8 +1,22 @@
 import { Injectable } from '@angular/core';
+import { User } from '../user';
 
 @Injectable()
 export class LoginService {
 
-  constructor() { }
+	currentUser: User;
 
+	constructor() { }
+
+	login(user: User) {
+
+	}
+
+	logout(user: User) {
+
+	}
+
+	getCurrentUser() {
+		
+	}
 }

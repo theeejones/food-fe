@@ -11,11 +11,15 @@ import { Product } from '../product';
 
 export class OrderComponent implements OnInit {
 
-	
+	search_products: Product[];
+	cart_products: Product[];
 
-  constructor() { }
+	constructor() {
+		this.search_products = [];
+		this.cart_products = [];
+	}
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
 }
