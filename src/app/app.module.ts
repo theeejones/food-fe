@@ -13,6 +13,7 @@ import { OrderComponent } from './order/order.component';
 import { SearchComponent } from './order/search/search.component';
 import { CartComponent } from './order/cart/cart.component';
 import { LoginComponent } from './login/login.component';
+import { TopnavComponent } from './topnav/topnav.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/login.component';
     OrderComponent,
     SearchComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    TopnavComponent
   ],
   imports: [
     BrowserModule,

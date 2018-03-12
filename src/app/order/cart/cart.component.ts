@@ -10,8 +10,8 @@ import { User } from "../../user";
 })
 export class CartComponent implements OnInit {
 
-	@Input() search_products: Product[];
-	@Input() cart_products: Product[];
+	@Input() searchProducts: Product[];
+	@Input() cartProducts: Product[];
 
 	constructor(private _foodService: FoodService) { }
 

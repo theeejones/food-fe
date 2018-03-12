@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FoodService } from '../../food.service';
 import { Product } from "../../product";
-import { Query } from "./query";
+import { Query } from "../../query";
 
 @Component({
   selector: 'app-search',
@@ -10,8 +10,8 @@ import { Query } from "./query";
 })
 export class SearchComponent implements OnInit {
 
-	@Input() search_products: Product[];
-	@Input() cart_products: Product[];
+	@Input() searchProducts: Product[];
+	@Input() cartProducts: Product[];
 	query: Query;
 
 	constructor(private _foodService: FoodService) {
@@ -19,6 +19,19 @@ export class SearchComponent implements OnInit {
 	}
 
 	ngOnInit() {
+	}
+
+	search() {
+		this._foodService.search(
+			(query, searchProducts) => {
+				this.query = query;
+				this.searchProducts = searchProducts;
+			}
+		);
+	}
+
+	add(index) {
+		
 	}
 
 }

@@ -2,6 +2,6 @@ export class Product {
 	asin: string;
 	name: string;
 	desc: string;
-	img_url: string;
+	imgUrl: string;
 	quantity: number;
 }

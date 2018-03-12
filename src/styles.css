@@ -1,11 +1,6 @@
-html, body {
-	height: 100vh;
-	width: 100%;
-}
-
 .fullpage {
 	width: 100%;
-	height: 100vh;
+	height: 96vh;
 	margin: 0px;
 }
 
@@ -15,4 +10,51 @@ html, body {
 
 .scrolling {
 	overflow: auto;
+}
+
+.spacer-sm {
+	height: 2px;
+}
+
+.spacer-md {
+	height: 10px;
+}
+
+.spacer-lg {
+	height: 16px;
+}
+
+.spacer-xl {
+	height: 19px;
+}
+
+.fill {
+    flex: 1;
+}
+
+.nopadding {
+	padding: 0px;
+}
+
+.nomargin {
+	margin: auto;
+}
+
+.product-container {
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+	height: 100%;
+}
+
+.product-search {
+	height: 250px;
+	width: 225px;
+	border: 1px solid #bbbbbb;
+	border-radius: 3px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.product-cart {
+
 }

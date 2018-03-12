@@ -12,11 +12,11 @@ export class LoginService {
 
 	}
 
-	logout(user: User) {
+	logout() {
 
 	}
 
 	getCurrentUser() {
-		
+		return this.currentUser;
 	}
 }
