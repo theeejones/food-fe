@@ -1,3 +1,10 @@
+.blue {
+	color: #004488;
+}
+
+.red {
+	color: #993333;
+}
 .fullpage {
 	width: 100%;
 	height: 96vh;
@@ -46,15 +53,11 @@
 	height: 100%;
 }
 
-.product-search {
-	height: 250px;
-	width: 225px;
-	border: 1px solid #bbbbbb;
-	border-radius: 3px;
-	margin-top: 10px;
-	margin-left: 10px;
-}
-
-.product-cart {
-
+.product-inner {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    overflow: auto;
 }

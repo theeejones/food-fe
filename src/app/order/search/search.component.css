@@ -1,0 +1,11 @@
+.product-search {
+	height: 300px;
+	width: 225px;
+	border: 1px solid #bbbbbb;
+	border-radius: 3px;
+	margin-top: 20px;
+	margin-left: 23px;
+	padding: 5px;
+	display: inline-block;
+	background-color: #d2b48c1f;
+}

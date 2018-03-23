@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { FoodService } from '../../food.service';
 import { Product } from "../../product";
 import { Query } from "../../query";
@@ -10,28 +11,32 @@ import { Query } from "../../query";
 })
 export class SearchComponent implements OnInit {
 
-	@Input() searchProducts: Product[];
-	@Input() cartProducts: Product[];
+	searchProducts: Product[];
+	cartProducts: Product[];
 	query: Query;
+	queryString: string;
 
 	constructor(private _foodService: FoodService) {
-		this.query = new Query();
+		this._foodService.searchStream$.subscribe(searchProducts => {
+			this.searchProducts = searchProducts;
+		});
+		this._foodService.cartStream$.subscribe(cartProducts => {
+			this.cartProducts = cartProducts;
+		});
+		this._foodService.queryStream$.subscribe(query => {
+			this.query = query;
+		});
 	}
 
 	ngOnInit() {
 	}
 
 	search() {
-		this._foodService.search(
-			(query, searchProducts) => {
-				this.query = query;
-				this.searchProducts = searchProducts;
-			}
-		);
+		this._foodService.search(this.queryString);
 	}
 
-	add(index) {
-		
+	add(index: number) {
+		this._foodService.add(index);
 	}
 
 }

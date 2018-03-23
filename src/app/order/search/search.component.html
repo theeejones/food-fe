@@ -3,7 +3,7 @@
 		<div class="row spacer-lg" style="margin: 0;"></div>
 		<div class="row align-items-center" style="margin: 0;">
 			<div class="col-4">
-				<input type="text" class="form-control input-lg" name="search_terms" [(ngModel)]="query.search_terms">
+				<input type="text" class="form-control input-lg" name="queryString" [(ngModel)]="queryString">
 			</div>
 			<div class="col-8">
 				<input type="button" class="btn btn-primary" value="Search Amazon Fresh" (click)="search();">
@@ -12,12 +12,15 @@
 		<div class="row spacer-sm" style="margin: 0;"></div>
 		<div class="row fill d-flex justify-content-start" style="margin: 0">
 			<div class="col" style="margin-left: 15px; padding:0;">
-				<div class="product-container d-flex scrolling flex-wrap">
-					<div class="product-search" *ngFor="let product of searchProducts, let idx = index">
-						<img [src]="product.imgUrl">
-						<p>{{product.name}}</p>
-						<p>{{product.desc}}</p>
-						<button class="btn btn-sm btn-outline-primary" (click)="add(index);">Add</button>
+				<div class="product-container">
+					<div class="product-inner">
+						<div class="product-search" *ngFor="let product of searchProducts, let idx = index">
+							<div class="text-center"><img [src]="product.imgUrl"></div>
+							<h5 class="text-center blue">{{product.name}}</h5>
+							<p class="text-center"><small>{{product.desc}}</small></p>
+							<p class="text-center red">${{product.price}}</p>
+							<div class="text-center"><button class="btn btn-sm btn-outline-primary" (click)="add(idx);">Add</button></div>
+						</div>
 					</div>
 				</div>
 			</div>

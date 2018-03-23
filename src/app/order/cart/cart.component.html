@@ -13,8 +13,37 @@
 		<div class="row spacer-sm" style="margin: 0;"></div>
 		<div class="row fill d-flex justify-content-start" style="margin: 0;">
 			<div class="col" style="padding:0;">
-				<div class="product-container scrolling">
-					
+				<div class="product-container">
+					<div class="product-inner">
+						<div class="product-cart" *ngFor="let product of cartProducts, let idx = index">
+							<div class="row d-flex">
+								<div class="col-2"><img [src]="product.imgUrl" class="cart-image"></div>
+								<div class="col">
+									<div class="row">
+										<div class="col text-left"><span class="blue"><b>{{ product.name }}</b></span></div>
+									</div>
+									<div class="row">
+										<div class="col text-left"><small class="red">${{ product.price }}</small></div>
+									</div>
+								</div>
+								<div class="col-2">
+									<div class="row">
+										{{ idx }}
+									</div>
+									<div class="row">
+										<div class="col text-right">
+											<input [(ngModel)]="product.quantity" (change)="updateQuantity(idx);" type="number" class="cart-stepper">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col text-right">
+											<button class="btn btn-outline-danger btn-sm" (click)="remove(idx);">Remove</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -24,7 +53,7 @@
 				Remaining Budget:&nbsp;
 			</div>
 			<div class="d-flex flex-column">
-				<input class="form-control form-control-sm shortened" id="inputSmall" type="text" disabled>
+				<input [(ngModel)]="moneyLeft" class="form-control form-control-sm shortened" id="inputSmall" disabled>
 			</div>
 		</div>
 		<div class="row spacer-xl" style="margin: 0;"></div>
