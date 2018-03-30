@@ -28,11 +28,8 @@
 								</div>
 								<div class="col-2">
 									<div class="row">
-										{{ idx }}
-									</div>
-									<div class="row">
 										<div class="col text-right">
-											<input [(ngModel)]="product.quantity" (change)="updateQuantity(idx);" type="number" class="cart-stepper">
+											<input [(ngModel)]="product.quantity" [name]="'quantity' + idx" (change)="updateQuantity(idx);" type="number" class="cart-stepper">
 										</div>
 									</div>
 									<div class="row">
@@ -53,7 +50,7 @@
 				Remaining Budget:&nbsp;
 			</div>
 			<div class="d-flex flex-column">
-				<input [(ngModel)]="moneyLeft" class="form-control form-control-sm shortened" id="inputSmall" disabled>
+				<input type="text" [value]="_foodService.moneyLeft" name="moneyLeft" class="form-control form-control-sm shortened" id="inputSmall" disabled>
 			</div>
 		</div>
 		<div class="row spacer-xl" style="margin: 0;"></div>

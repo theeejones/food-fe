@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { OrderComponent } from '../order.component';
 import { FoodService } from '../../food.service';
@@ -14,10 +14,9 @@ export class CartComponent implements OnInit {
 
 	searchProducts: Product[];
 	cartProducts: Product[];
-	moneyLeft: number;
+	moneyLeft: Object;
 
-	constructor(private _foodService: FoodService) {
-		
+	constructor(private _foodService: FoodService, private _cd: ChangeDetectorRef) {
 	}
 
 	ngOnInit() {
@@ -27,15 +26,16 @@ export class CartComponent implements OnInit {
 		this._foodService.cartStream$.subscribe(cartProducts => {
 			this.cartProducts = cartProducts;
 		});
+		// This doesn't work. ???
 		this._foodService.moneyStream$.subscribe(moneyLeft => {
-			this.moneyLeft = moneyLeft;
-		});
+		 	this.moneyLeft = moneyLeft;
+		 });
 	}
 
 	ngOnDestroy() {
-		this._foodService.searchStream$.unsubscribe();
-		this._foodService.cartStream$.unsubscribe();
-		this._foodService.moneyStream$.unsubscribe();
+		// this._foodService.searchStream$.unsubscribe();
+		// this._foodService.cartStream$.unsubscribe();
+		// this._foodService.moneyStream$.unsubscribe();
 	}
 
 	remove(index: number) {
@@ -43,7 +43,6 @@ export class CartComponent implements OnInit {
 	}
 
 	updateQuantity(index: number) {
-		console.log(index);
 		this._foodService.updateQuantity(index, this.cartProducts[index].quantity);
 	}
 }

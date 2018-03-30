@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
 
 	searchProducts: Product[];
 	cartProducts: Product[];
+	addableProducts: Object[] = [];
 	query: Query;
 	queryString: string;
 
@@ -22,6 +23,9 @@ export class SearchComponent implements OnInit {
 		});
 		this._foodService.cartStream$.subscribe(cartProducts => {
 			this.cartProducts = cartProducts;
+		});
+		this._foodService.addableStream$.subscribe(addableProducts => {
+			this.addableProducts = addableProducts;
 		});
 		this._foodService.queryStream$.subscribe(query => {
 			this.query = query;
