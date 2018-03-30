@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { FoodService } from '../../food.service';
 import { Product } from "../../product";
 import { Query } from "../../query";
+import { Addableproduct} from '../../addableproduct';
 
 @Component({
   selector: 'app-search',
@@ -13,14 +14,11 @@ export class SearchComponent implements OnInit {
 
 	searchProducts: Product[];
 	cartProducts: Product[];
-	addableProducts: Object[] = [];
+	addableProducts: Addableproduct[] = [];
 	query: Query;
 	queryString: string;
 
 	constructor(private _foodService: FoodService) {
-		this._foodService.searchStream$.subscribe(searchProducts => {
-			this.searchProducts = searchProducts;
-		});
 		this._foodService.cartStream$.subscribe(cartProducts => {
 			this.cartProducts = cartProducts;
 		});
@@ -36,7 +34,9 @@ export class SearchComponent implements OnInit {
 	}
 
 	search() {
-		this._foodService.search(this.queryString);
+		this._foodService.search(this.queryString, searchProducts => {
+			this.searchProducts = searchProducts;
+		});
 	}
 
 	add(index: number) {

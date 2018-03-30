@@ -19,7 +19,7 @@
 							<h5 class="text-center blue">{{product.name}}</h5>
 							<p class="text-center"><small>{{product.desc}}</small></p>
 							<p class="text-center red">${{product.price}}</p>
-							<div class="text-center"><button class="btn btn-sm btn-outline-primary" (click)="add(idx);" [disabled]="_foodService.addableProducts[idx].addable">Add</button></div>
+							<div class="text-center"><button class="btn btn-sm btn-outline-primary" (click)="add(idx);" [disabled]="_foodService.addableProducts[idx].notAddable">Add</button></div>
 						</div>
 					</div>
 				</div>

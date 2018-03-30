@@ -50,7 +50,7 @@
 				Remaining Budget:&nbsp;
 			</div>
 			<div class="d-flex flex-column">
-				<input type="text" [value]="_foodService.moneyLeft" name="moneyLeft" class="form-control form-control-sm shortened" id="inputSmall" disabled>
+				<input type="text" [value]="'$' + _foodService.moneyLeft" name="moneyLeft" class="form-control form-control-sm shortened" id="inputSmall" disabled>
 			</div>
 		</div>
 		<div class="row spacer-xl" style="margin: 0;"></div>

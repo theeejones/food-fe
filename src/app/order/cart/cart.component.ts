@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
 	cartProducts: Product[];
 	moneyLeft: Object;
 
-	constructor(private _foodService: FoodService, private _cd: ChangeDetectorRef) {
+	constructor(private _foodService: FoodService) {
 	}
 
 	ngOnInit() {
@@ -27,9 +27,9 @@ export class CartComponent implements OnInit {
 			this.cartProducts = cartProducts;
 		});
 		// This doesn't work. ???
-		this._foodService.moneyStream$.subscribe(moneyLeft => {
-		 	this.moneyLeft = moneyLeft;
-		 });
+		// this._foodService.moneyStream$.subscribe(moneyLeft => {
+		//  	this.moneyLeft = moneyLeft;
+		// });
 	}
 
 	ngOnDestroy() {
